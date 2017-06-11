@@ -1,0 +1,60 @@
+<% layout('layout.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1>Tweet Feed</h1>
+        </div>
+        <div class="col-xs-6">
+          <button class="btn btn-danger pull-right" style="margin-top: 29px;" id="stopLive" data-loading-text="Stopping Live...">Stop Live!</button>
+          <button class="btn btn-success pull-right" style="margin-top: 29px;" id="startLive" data-loading-text="Going Live...">Start Live!</button>
+        </div>
+      </div>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-sm hidden-xs">
+      <ul class="nav nav-pills  nav-stacked">
+        <li role="presentation" class="active"><a href="#">Live Feeds</a></li>
+        <li role="presentation"><a href="/tweets/search">Search Feeds</a></li>
+        <li role="presentation"><a href="/tweets/depth">Overall Analytics</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-9">
+      <div class="row">
+        <div class="col-xs-12" id="tweetWall"></div>
+        <div class="cssload-container" id="cssloader">
+        <div class="text-center">
+          <br/>
+          <p id="statusText1">Go Live</p>
+          <br/>
+        </div>
+        <div class="cssload-circle-1">
+          <div class="cssload-circle-2">
+            <div class="cssload-circle-3">
+              <div class="cssload-circle-4">
+                <div class="cssload-circle-5">
+                  <div class="cssload-circle-6">
+                    <div class="cssload-circle-7">
+                      <div class="cssload-circle-8">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <br/>
+          <p id="statusText2">To Start Listening!</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/tweet.js"></script>

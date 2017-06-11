@@ -1,0 +1,73 @@
+<% layout('layout.ejs')%>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Settings</h1>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 hidden-sm hidden-xs">
+          <ul class="nav nav-pills  nav-stacked">
+            <li role="presentation" class="active"><a href="#">Twitter Integration</a></li>
+            <li role="presentation"><a href="/settings/profile">Profile</a></li>
+            <li role="presentation"><a href="/settings/security">Security</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-md-9">
+            <%if (user.twitter.key == "a" && user.twitter.secret == "b"){%>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="jumbotron">
+                        <h1>Integrate Twitter</h1>
+                        <p>To get started with TWEAL, Integrate your Twitter Account. To do that authorise our application on Twitter.</p>
+                        <p>
+                            <a class="btn btn-lg btn-primary" href="/settings/twitter/go" role="button">Authorise</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <%}else{%>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="jumbotron">
+                        <h1>Successful Integration!</h1>
+                        <p>You have integrated TWEAL Twitter successfully! By this TWEAL can access your Tweets at any time and send Tweets according to your preferences.</p>
+                    </div>
+                </div>
+            </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <% if(typeof searchError != "undefined") {%>
+              <div class="alert alert-danger" role="alert">
+                <%= searchError %>
+              </div>
+              <%}%>
+              <% if(typeof searchSuccess != "undefined") {%>
+              <div class="alert alert-success" role="alert">
+                <%= searchSuccess %>
+              </div>
+              <%}%>
+            </div>
+          </div>
+            <div class="row form-horizontal">
+                <form method="post" action="/settings/twitter/updateSearchTerm">
+                    <div class="col-xs-12 form-group form-group-lg">
+                        <label class="col-sm-3 control-label" for="serachTerm"><span class="pull-left">Search Term</span></label>
+                        <div class="col-sm-6">
+                          <%if(user.twitter.searchTerm){%>
+                          <input class="form-control" id="serachTerm" value="<%=user.twitter.searchTerm%>" type="text" name="searchTerm" placeholder="Search Term">
+                          <%}else{%>
+                          <input class="form-control" id="serachTerm" value="" type="text" name="searchTerm" placeholder="Search Term">
+                          <%}%>
+                        </div>
+                        <div class="col-sm-3">
+                            <button class="btn btn-primary btn-block btn-lg" type="submit">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <%}%>
+        </div>
+    </div>
+</div>

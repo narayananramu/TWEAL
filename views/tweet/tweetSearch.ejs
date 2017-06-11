@@ -1,0 +1,22 @@
+<% layout('layout.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Tweet Feed</h1>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-sm hidden-xs">
+      <ul class="nav nav-pills  nav-stacked">
+        <li role="presentation"><a href="/tweets">Live Feeds</a></li>
+        <li role="presentation" class="active"><a href="#">Search Feeds</a>
+        <li role="presentation"><a href="/tweets/depth">Overall Analytics</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-9" id="tweetWall">
+    </div>
+  </div>
+</div>
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/tweetSearch.js"></script>

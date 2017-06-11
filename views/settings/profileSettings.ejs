@@ -1,0 +1,83 @@
+<% layout('layout.ejs')%>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Settings</h1>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-sm hidden-xs">
+      <ul class="nav nav-pills  nav-stacked">
+        <li role="presentation"><a href="/settings">Twitter Integration</a></li>
+        <li role="presentation" class="active"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="/settings/security">Security</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-9">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>Profile Settings</h1>
+          <hr/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <form method="post" action="/settings/profile/updateProfile">
+            <div class="row">
+              <div class="col-xs-12">
+                <% if(typeof error != "undefined") {%>
+                <div class="alert alert-danger" role="alert">
+                  <%= error %>
+                </div>
+                <%}%>
+                <% if(typeof success != "undefined") {%>
+                <div class="alert alert-success" role="alert">
+                  <%= success %>
+                </div>
+                <%}%>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group form-group-lg">
+                <label class="col-sm-3 control-label" for="fname"><span class="pull-left">First Name</span></label>
+                <div class="col-sm-9">
+                  <input class="form-control" id="fname" value="<%=user.name.first%>" type="text" name="fname" placeholder="First Name">
+                </div>
+              </div>
+            </div><br/>
+            <div class="row">
+              <div class="form-group form-group-lg">
+                <label class="col-sm-3 control-label" for="lname"><span class="pull-left">Last Name</span></label>
+                <div class="col-sm-9">
+                  <input class="form-control" id="lname" value="<%=user.name.last%>" type="text" name="lname" placeholder="Last Name">
+                </div>
+              </div>
+            </div><br/>
+            <div class="row">
+              <div class="form-group form-group-lg">
+                <label class="col-sm-3 control-label" for="Email"><span class="pull-left">Email</span></label>
+                <div class="col-sm-9">
+                  <input class="form-control" id="Email" value="<%=user.email%>" type="text" name="email" placeholder="Email">
+                </div>
+              </div>
+            </div><br/>
+            <div class="row">
+              <div class="form-group form-group-lg">
+                <label class="col-sm-3 control-label" for="Username"><span class="pull-left">Username</span></label>
+                <div class="col-sm-9">
+                  <input class="form-control" id="Username" value="<%=user.username%>" type="text" name="username" placeholder="Username">
+                </div>
+              </div>
+            </div><br/>
+            <div class="row">
+              <div class="col-xs-12 col-sm-3 pull-right">
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Update</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

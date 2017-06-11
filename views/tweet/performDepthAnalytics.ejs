@@ -1,0 +1,108 @@
+<% layout('layout.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Depth Analytics</h1>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-sm hidden-xs">
+      <ul class="nav nav-pills  nav-stacked">
+        <li role="presentation"><a href="/tweets">Live Feeds</a></li>
+        <li role="presentation"><a href="/tweets/search">Search Feeds</a></li>
+        <li role="presentation" class="active"><a href="/tweets/depth">Overall Analytics</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-9">
+      <div class="row" id="errorMessage">
+        <div class="col-xs-12">
+          <div class="jumbotron">
+            <h1>Error!</h1>
+            <p>API Call Limit Exceeded</p>
+          </div>
+        </div>
+      </div>
+      <div class="cssload-container" id="cssloader">
+        <div class="text-center">
+          <br/>
+          <p>Analysing</p>
+          <br/>
+        </div>
+        <div class="cssload-circle-1">
+          <div class="cssload-circle-2">
+            <div class="cssload-circle-3">
+              <div class="cssload-circle-4">
+                <div class="cssload-circle-5">
+                  <div class="cssload-circle-6">
+                    <div class="cssload-circle-7">
+                      <div class="cssload-circle-8">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <br/>
+          <p>Please Wait...</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-9" id="tweetWall">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Tweets</h2>
+          <hr/>
+          <canvas id="myChart" width="200" height="200"></canvas>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Data</h2>
+          <hr/>
+          <table class="table table-bordered">
+            <thead>
+              <th>Legend</th>
+              <th>Value</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Total Tweets</td>
+                <td id="tTw"></td>
+              </tr>
+              <tr>
+                <td>Total Overall Score</td>
+                <td id="tOverSc"></td>
+              </tr>
+              <tr>
+                <td>Total Positive Tweets</td>
+                <td id="tPosTw"></td>
+              </tr>
+              <tr>
+                <td>Total Positivity Score</td>
+                <td id="tPosSc"></td>
+              </tr>
+              <tr>
+                <td>Total Neutral Tweets</td>
+                <td id="tNeuTw"></td>
+              </tr>
+              <tr>
+                <td>Total Negative Tweets</td>
+                <td id="tNegTw"></td>
+              </tr>
+              <tr>
+                <td>Total Negativity Score</td>
+                <td id="tNegSc"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/dependencies/Chart.min.js"></script>
+<script src="/js/depthSearch.js"></script>

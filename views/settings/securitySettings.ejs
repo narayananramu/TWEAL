@@ -1,0 +1,75 @@
+<% layout('layout.ejs')%>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Settings</h1>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-sm hidden-xs">
+      <ul class="nav nav-pills  nav-stacked">
+        <li role="presentation"><a href="/settings">Twitter Integration</a></li>
+        <li role="presentation"><a href="/settings/profile">Profile</a></li>
+        <li role="presentation" class="active"><a href="#">Security</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-9">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>Security Settings</h1>
+          <hr/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <form method="post" action="/settings/security/updatePassword">
+            <div class="row">
+              <div class="col-xs-12">
+                <% if(typeof error != "undefined") {%>
+                <div class="alert alert-danger" role="alert">
+                  <%= error %>
+                </div>
+                <%}%>
+                <% if(typeof success != "undefined") {%>
+                <div class="alert alert-success" role="alert">
+                  <%= success %>
+                </div>
+                <%}%>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group form-group-lg">
+                <label class="col-sm-4 control-label" for="opassword"><span class="pull-left">Old Password</span></label>
+                <div class="col-sm-8">
+                  <input class="form-control" id="opassword" value="" type="password" name="opassword" placeholder="Old Password">
+                </div>
+              </div>
+            </div><br/>
+            <div class="row">
+              <div class="form-group form-group-lg">
+                <label class="col-sm-4 control-label" for="n1password"><span class="pull-left">New Password</span></label>
+                <div class="col-sm-8">
+                  <input class="form-control" id="n1password" value="" type="password" name="newpassword" placeholder="New Password">
+                </div>
+              </div>
+            </div><br/>
+            <div class="row">
+              <div class="form-group form-group-lg">
+                <label class="col-sm-4 control-label" for="n2password"><span class="pull-left">Retype New Password</span></label>
+                <div class="col-sm-8">
+                  <input class="form-control" id="n2password" value="" type="password" name="rnewpassword" placeholder="Retype New Password">
+                </div>
+              </div>
+            </div><br/>
+            <div class="row">
+              <div class="col-xs-12 col-sm-3 pull-right">
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Update</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
